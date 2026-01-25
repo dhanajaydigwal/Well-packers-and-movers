@@ -3,13 +3,13 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   Chip,
   alpha,
   useTheme,
 } from '@mui/material'
+import Grid from "@mui/material/GridLegacy";
 import { motion } from 'framer-motion'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import PublicIcon from '@mui/icons-material/Public'
@@ -93,7 +93,7 @@ const Network: React.FC = () => {
         </Box>
 
         {/* Network Stats */}
-        <Grid container spacing={2} sx={{ mb: 8 ,ml:8}}>
+        <Grid container spacing={2} sx={{ mb: 8 }}>
           {Object.entries(networkData).map(([key, value], index) => (
             <Grid item xs={6} sm={3} key={key}>
               <motion.div

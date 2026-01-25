@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, type JSX } from 'react'
 import {
   Box,
   Typography,
@@ -16,16 +16,33 @@ import PublicIcon from '@mui/icons-material/Public'
 import HelpIcon from '@mui/icons-material/Help'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 
+export type SectionType =
+  | 'home'
+  | 'about'
+  | 'services'
+  | 'industries'
+  | 'network'
+  | 'faq'
+  | 'contact'
+
+
 interface NavigationProps {
-  scrollToSection: (sectionId: string) => void
-  activeSection: string
+  scrollToSection: (sectionId: SectionType) => void
+  activeSection: SectionType
 }
 
-const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) => {
+const Header: React.FC<NavigationProps> = ({
+  scrollToSection,
+  activeSection,
+}) => {
   const theme = useTheme()
   const [scrolled, setScrolled] = useState(false)
 
-  const sections = [
+  const sections: {
+    id: SectionType
+    label: string
+    icon: JSX.Element
+  }[] = [
     { id: 'home', label: 'Home', icon: <HomeIcon /> },
     { id: 'about', label: 'About', icon: <InfoIcon /> },
     { id: 'services', label: 'Services', icon: <DesignServicesIcon /> },
@@ -45,7 +62,7 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
 
   return (
     <>
-      {/* Logo - Fixed Top Left */}
+      {/* Logo */}
       <Fade in={scrolled}>
         <Box
           sx={{
@@ -53,21 +70,12 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
             top: 20,
             right: 20,
             zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1,
-            cursor: 'pointer',
             p: 2,
             borderRadius: 3,
+            cursor: 'pointer',
             backgroundColor: alpha(theme.palette.background.paper, 0.9),
             backdropFilter: 'blur(10px)',
             boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
-            border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-            transition: 'all 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
-            },
           }}
           onClick={() => scrollToSection('home')}
         >
@@ -75,7 +83,7 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
         </Box>
       </Fade>
 
-      {/* Progress Navigation - Left Side */}
+      {/* Side Navigation */}
       <Box
         sx={{
           position: 'fixed',
@@ -85,11 +93,10 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
           zIndex: 999,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
           gap: 0.5,
         }}
       >
-        {sections.map((section, index) => (
+        {sections.map(section => (
           <motion.div
             key={section.id}
             whileHover={{ scale: 1.2 }}
@@ -100,60 +107,33 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
               sx={{
                 width: 40,
                 height: 40,
+                borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderRadius: '50%',
                 cursor: 'pointer',
-                position: 'relative',
+                backgroundColor:
+                  activeSection === section.id
+                    ? theme.palette.primary.main
+                    : alpha(theme.palette.primary.main, 0.15),
+                color:
+                  activeSection === section.id
+                    ? 'white'
+                    : theme.palette.primary.main,
                 transition: 'all 0.3s ease',
-                backgroundColor: activeSection === section.id
-                  ? theme.palette.primary.main
-                  : alpha(theme.palette.primary.main, 0.1),
-                color: activeSection === section.id
-                  ? 'white'
-                  : theme.palette.primary.main,
                 '&:hover': {
                   backgroundColor: theme.palette.primary.main,
                   color: 'white',
-                  '& .section-label': {
-                    opacity: 1,
-                    transform: 'translateX(0)',
-                  },
                 },
               }}
             >
               {section.icon}
-              
-              {/* Label Tooltip */}
-              <Typography
-                className="section-label"
-                variant="caption"
-                sx={{
-                  position: 'absolute',
-                  right: '100%',
-                  ml: 1,
-                  whiteSpace: 'nowrap',
-                  backgroundColor: theme.palette.primary.main,
-                  color: 'white',
-                  px: 1.5,
-                  py: 0.5,
-                  borderRadius: 2,
-                  opacity: 0,
-                  transform: 'translateX(-10px)',
-                  transition: 'all 0.3s ease',
-                  pointerEvents: 'none',
-                  fontWeight: 600,
-                }}
-              >
-                {section.label}
-              </Typography>
             </Box>
           </motion.div>
         ))}
       </Box>
 
-      {/* Current Section Indicator */}
+      {/* Active Section Indicator */}
       <Fade in={scrolled}>
         <Box
           sx={{
@@ -161,12 +141,12 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
             top: 90,
             right: 20,
             zIndex: 1000,
-            p: 1.5,
+            px: 2,
+            py: 1,
             borderRadius: 3,
             backgroundColor: alpha(theme.palette.background.paper, 0.9),
             backdropFilter: 'blur(10px)',
             boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
-            border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
           }}
         >
           <Typography
@@ -175,7 +155,6 @@ const Header: React.FC<NavigationProps> = ({ scrollToSection, activeSection }) =
               fontWeight: 700,
               color: theme.palette.primary.main,
               textTransform: 'uppercase',
-              letterSpacing: 1,
             }}
           >
             {activeSection}

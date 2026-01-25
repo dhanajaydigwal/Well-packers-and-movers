@@ -4,20 +4,28 @@ import {
   Container,
   Typography,
   Button,
-  Grid,
   Card,
   CardContent,
   alpha,
   useTheme,
 } from '@mui/material'
+import Grid from "@mui/material/GridLegacy";
 import { motion } from 'framer-motion'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import SecurityIcon from '@mui/icons-material/Security'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation'
+export type SectionType =
+  | 'home'
+  | 'about'
+  | 'services'
+  | 'industries'
+  | 'network'
+  | 'faq'
+  | 'contact'
 
 interface HeroProps {
-  scrollToSection: (sectionId: string) => void
+  scrollToSection: (sectionId: SectionType) => void
 }
 
 const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
@@ -46,7 +54,6 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
         overflow: 'hidden',
       }}
     >
-      {/* Animated Background Elements */}
       <Box
         sx={{
           position: 'absolute',
@@ -183,7 +190,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
             </motion.div>
           </Grid>
 
-          <Grid item xs={12} lg={6}>
+          {/* <Grid item xs={12} lg={6}>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -214,7 +221,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
                 }}
               />
             </motion.div>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         {/* Stats Section */}

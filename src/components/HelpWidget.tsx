@@ -14,8 +14,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ChatIcon from '@mui/icons-material/Chat'
 import CloseIcon from '@mui/icons-material/Close'
 import SendIcon from '@mui/icons-material/Send'
-import PhoneIcon from '@mui/icons-material/Phone'
-import EmailIcon from '@mui/icons-material/Email'
 
 interface ChatMessage {
   id: number

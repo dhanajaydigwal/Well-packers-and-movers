@@ -3,13 +3,13 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   Button,
   alpha,
   useTheme,
 } from '@mui/material'
+import Grid from "@mui/material/GridLegacy";
 import { motion } from 'framer-motion'
 import HomeIcon from '@mui/icons-material/Home'
 import InventoryIcon from '@mui/icons-material/Inventory'

@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
+  // Grid,
   TextField,
   Button,
   Alert,
@@ -13,6 +13,7 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
+import Grid from "@mui/material/GridLegacy";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -161,7 +162,7 @@ const Contact: React.FC = () => {
           </Box>
 
           {/* ENHANCED CONTACT CARDS */}
-          <Grid container spacing={3} sx={{ ml: 19 ,width:"100%"}} mb={6}>
+          <Grid container spacing={3} sx={{  width: "100%" }} mb={6}>
             {contactInfo.map((info, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <Paper
@@ -235,15 +236,16 @@ const Contact: React.FC = () => {
             ))}
           </Grid>
 
-          {/* FORM WITH 3 FIELDS PER ROW */}
+          {/* FORM WITH 3 FIELDS PER ROW - FIXED WIDTH */}
           <Grid container justifyContent="center">
-            <Grid item xs={12} md={10}  lg={8}>
+            <Grid item xs={12} md={12} lg={12}>
               <Paper
                 elevation={3}
                 sx={{
                   p: { xs: 3, md: 5 },
                   borderRadius: 4,
                   backgroundColor: "white",
+                  width: "100%",
                 }}
               >
                 <Box textAlign="center" mb={4}>
@@ -349,26 +351,22 @@ const Contact: React.FC = () => {
 
                   {/* Third Row - Message Field */}
                   <Grid container justifyContent="center">
-                    {/* <Grid item xs={12}>
-                      <Grid container spacing={3} mb={4}> */}
-                        <Grid item xs={12} sx={{width:"100%",mb:3}}>
-                          <TextField
-                            fullWidth
-                            multiline
-                            rows={3}
-                            label="Additional Message"
-                            placeholder="Tell us about your moving requirements..."
-                            value={formData.message}
-                            onChange={(e) =>
-                              handleChange("message", e.target.value)
-                            }
-                            InputProps={{
-                              sx: { borderRadius: 2 },
-                            }}
-                          />
-                        </Grid>
-                      {/* </Grid>
-                    </Grid> */}
+                    <Grid item xs={12} sx={{ width: "100%", mb: 3 }}>
+                      <TextField
+                        fullWidth
+                        multiline
+                        rows={3}
+                        label="Additional Message"
+                        placeholder="Tell us about your moving requirements..."
+                        value={formData.message}
+                        onChange={(e) =>
+                          handleChange("message", e.target.value)
+                        }
+                        InputProps={{
+                          sx: { borderRadius: 2 },
+                        }}
+                      />
+                    </Grid>
                   </Grid>
 
                   {/* Terms & Submit Button */}

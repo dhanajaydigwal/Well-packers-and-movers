@@ -2,7 +2,7 @@ import React from 'react'
 import {
   Box,
   Container,
-  Grid,
+  // Grid,
   Typography,
   Link,
   IconButton,
@@ -11,6 +11,7 @@ import {
   Stack,
   Chip,
 } from '@mui/material'
+import Grid from "@mui/material/GridLegacy";
 import { motion } from 'framer-motion'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
@@ -23,6 +24,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import ShieldIcon from '@mui/icons-material/Shield'
 import SupportAgentIcon from '@mui/icons-material/SupportAgent'
+import {Divider} from '@mui/material'
 
 const Footer: React.FC = () => {
   const theme = useTheme()
@@ -329,7 +331,7 @@ const Footer: React.FC = () => {
     </Typography>
     
     {/* Vertical Divider - Hidden on mobile */}
-    <Divider 
+    <Divider
       orientation="vertical" 
       flexItem 
       sx={{ 
