@@ -15,8 +15,6 @@ import HomeIcon from '@mui/icons-material/Home'
 import InventoryIcon from '@mui/icons-material/Inventory'
 import MovingIcon from '@mui/icons-material/Moving'
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar'
-import WarehouseIcon from '@mui/icons-material/Warehouse'
-import BusinessIcon from '@mui/icons-material/Business'
 
 const Services: React.FC = () => {
   const theme = useTheme()
