@@ -50,20 +50,6 @@ const Services: React.FC = () => {
       icon: <DirectionsCarIcon />,
       features: ['Door-to-door service', 'Insurance covered', 'Real-time tracking'],
     },
-    {
-      title: 'Storage & Warehouse',
-      description:
-        'Expert team with proper equipment for safe loading and unloading of your belongings.',
-      icon: <WarehouseIcon />,
-      features: ['24/7 security', 'Climate controlled', 'Flexible durations'],
-    },
-    {
-      title: 'Office Relocation',
-      description:
-        'Expert team with proper equipment for safe loading and unloading of your belongings.',
-      icon: <BusinessIcon />,
-      features: ['Weekend moves', 'IT equipment handling', 'Quick setup'],
-    },
   ]
 
   return (

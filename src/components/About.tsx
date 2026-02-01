@@ -52,8 +52,6 @@ const About: React.FC = () => {
     { value: "50K+", label: "Happy Customers", icon: "😊" },
     { value: "100+", label: "Cities Covered", icon: "📍" },
     { value: "500+", label: "Expert Staff", icon: "👨‍🔧" },
-    { value: "12+", label: "Years Experience", icon: "🏆" },
-    { value: "50K+", label: "Happy Customers", icon: "😊" },
   ];
 
   return (
@@ -85,7 +83,7 @@ const About: React.FC = () => {
 
       <Container maxWidth="xl">
         <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} lg={6}>
+          <Grid item xs={12}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -151,10 +149,17 @@ const About: React.FC = () => {
               </Typography>
 
               {/* Stats */}
-              <Grid container spacing={3} sx={{ mb: 5 }}>
+              <Grid container spacing={3} sx={{ mb: 5 }} alignItems="stretch">
                 {stats.map((stat, index) => (
-                  <Grid item xs={6} sm={3} key={index}>
+                  <Grid
+                    item
+                    xs={6} // 📱 mobile → 2 cards per row
+                    sm={3} // 💻 desktop → 4 cards per row
+                    key={index}
+                    sx={{ display: "flex" }}
+                  >
                     <motion.div
+                      style={{ width: "100%", display: "flex" }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -162,6 +167,10 @@ const About: React.FC = () => {
                     >
                       <Card
                         sx={{
+                          flex: 1,
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
                           textAlign: "center",
                           p: 2,
                           background: alpha(
@@ -170,22 +179,35 @@ const About: React.FC = () => {
                           ),
                           backdropFilter: "blur(10px)",
                           border: "1px solid rgba(255,255,255,0.2)",
-                          height: "100%",
                           transition: "all 0.3s ease",
                           "&:hover": {
                             transform: "translateY(-4px)",
-                            boxShadow: `0 10px 20px ${alpha(theme.palette.primary.main, 0.1)}`,
+                            boxShadow: `0 10px 20px ${alpha(
+                              theme.palette.primary.main,
+                              0.1,
+                            )}`,
                           },
                         }}
                       >
-                        <CardContent>
+                        <CardContent
+                          sx={{
+                            flexGrow: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: 1,
+                          }}
+                        >
                           <Typography
                             variant="h3"
                             sx={{
                               fontWeight: 800,
-                              mb: 1,
                               fontSize: "2rem",
-                              background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+                              lineHeight: 1.2,
+                              background: `linear-gradient(135deg,
+                  ${theme.palette.primary.main} 0%,
+                  ${theme.palette.secondary.main} 100%)`,
                               backgroundClip: "text",
                               WebkitBackgroundClip: "text",
                               color: "transparent",
@@ -193,6 +215,7 @@ const About: React.FC = () => {
                           >
                             {stat.value}
                           </Typography>
+
                           <Typography
                             variant="body2"
                             sx={{
@@ -202,6 +225,8 @@ const About: React.FC = () => {
                               alignItems: "center",
                               justifyContent: "center",
                               gap: 1,
+                              minHeight: 40, // 🔥 keeps all cards equal
+                              textAlign: "center",
                             }}
                           >
                             <span style={{ fontSize: "1.2rem" }}>
@@ -217,134 +242,10 @@ const About: React.FC = () => {
               </Grid>
             </motion.div>
           </Grid>
-
-          {/* <Grid item xs={12} lg={6}>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              // viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Box
-                sx={{
-                  position: "relative",
-                  borderRadius: 4,
-                  overflow: "hidden",
-                  boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
-                }}
-              >
-                <Box
-                  sx={{
-                    height: { xs: 300, md: 500 },
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800")',
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    position: "relative",
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.2)} 0%, ${alpha(
-                        theme.palette.secondary.main,
-                        0.2,
-                      )} 100%)`,
-                    },
-                  }}
-                />
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <Card
-                    sx={{
-                      position: "absolute",
-                      top: 30,
-                      left: 30,
-
-                      maxWidth: 200,
-                      p: 2,
-                      background: alpha(theme.palette.background.paper, 0.9),
-                      backdropFilter: "blur(10px)",
-                      border: "1px solid rgba(255,255,255,0.3)",
-                    }}
-                  >
-                    <CardContent>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 1 }}
-                      >
-                        <VerifiedUserIcon
-                          sx={{ color: theme.palette.success.main, mr: 1 }}
-                        />
-                        <Typography
-                          variant="subtitle1"
-                          sx={{ fontWeight: 600 }}
-                        >
-                          Certified & Insured
-                        </Typography>
-                      </Box>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        Fully licensed and insured for your peace of mind
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <Card
-                    sx={{
-                      position: "absolute",
-                      bottom: 30,
-                      right: 30,
-                      maxWidth: 200,
-                      p: 2,
-                      background: alpha(theme.palette.background.paper, 0.9),
-                      backdropFilter: "blur(10px)",
-                      border: "1px solid rgba(255,255,255,0.3)",
-                    }}
-                  >
-                    <CardContent>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 1 }}
-                      >
-                        <SupportAgentIcon
-                          sx={{ color: theme.palette.primary.main, mr: 1 }}
-                        />
-                        <Typography
-                          variant="subtitle1"
-                          sx={{ fontWeight: 600 }}
-                        >
-                          24/7 Support
-                        </Typography>
-                      </Box>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        Always available to assist you
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Box>
-            </motion.div>
-          </Grid> */}
         </Grid>
 
         {/* Features */}
-        <Box sx={{ mt: { xs: 8, md: 12 } }}>
+        {/* <Box sx={{ mt: { xs: 8, md: 12 } }}>
           <Grid
             container
             spacing={4}
@@ -417,6 +318,97 @@ const About: React.FC = () => {
                         {feature.title}
                       </Typography>
 
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "text.secondary",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {feature.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box> */}
+        <Box sx={{ mt: { xs: 8, md: 12 } }}>
+          <Grid
+            container
+            spacing={4}
+            sx={{
+              overflowX: "hidden", // ❌ No horizontal scrollbar anywhere
+            }}
+          >
+            {features.map((feature: any, index: number) => (
+              <Grid
+                item
+                key={index}
+                xs={12} // 📱 Mobile → vertical
+                sm={6} // 📱 Tablet → 2 cards
+                md={3} // 💻 Desktop → 4 cards
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card
+                    sx={{
+                      height: "100%",
+                      p: 3,
+                      textAlign: "center",
+                      background: alpha(theme.palette.background.paper, 0.6),
+                      backdropFilter: "blur(10px)",
+                      border: "1px solid rgba(255,255,255,0.2)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: `0 20px 40px ${alpha(feature.color, 0.15)}`,
+                        borderColor: alpha(feature.color, 0.3),
+                      },
+                    }}
+                  >
+                    <CardContent>
+                      {/* Icon */}
+                      <Box
+                        sx={{
+                          width: 60,
+                          height: 60,
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          background: `linear-gradient(135deg, ${alpha(
+                            feature.color,
+                            0.1,
+                          )} 0%, ${alpha(feature.color, 0.2)} 100%)`,
+                          margin: "0 auto 20px",
+                          "& svg": {
+                            fontSize: 32,
+                            color: feature.color,
+                          },
+                        }}
+                      >
+                        {feature.icon}
+                      </Box>
+
+                      {/* Title */}
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 700,
+                          mb: 2,
+                          color: "text.primary",
+                        }}
+                      >
+                        {feature.title}
+                      </Typography>
+
+                      {/* Description */}
                       <Typography
                         variant="body2"
                         sx={{

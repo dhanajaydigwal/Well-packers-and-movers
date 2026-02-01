@@ -93,7 +93,7 @@ const Network: React.FC = () => {
         </Box>
 
         {/* Network Stats */}
-        <Grid container spacing={2} sx={{ mb: 8 }}>
+        {/* <Grid container spacing={2} sx={{ mb: 8 }}>
           {Object.entries(networkData).map(([key, value], index) => (
             <Grid item xs={6} sm={3} key={key}>
               <motion.div
@@ -163,7 +163,89 @@ const Network: React.FC = () => {
               </motion.div>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
+        <Grid container spacing={2} sx={{ mb: 8 }}>
+  {Object.entries(networkData).map(([key, value], index) => (
+    <Grid
+      item
+      xs={12}   // 📱 Mobile → full width (vertical)
+      sm={3}    // 💻 Desktop → same layout as before
+      key={key}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+      >
+        <Card
+          sx={{
+            height: '100%',
+            p: 3,
+            textAlign: 'center',
+            background: alpha(theme.palette.background.paper, 0.6),
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.2)',
+          }}
+        >
+          <CardContent>
+            <Box
+              sx={{
+                width: 60,
+                height: 60,
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: `linear-gradient(135deg,
+                  ${alpha(theme.palette.primary.main, 0.1)} 0%,
+                  ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
+                margin: '0 auto 15px',
+                '& svg': {
+                  fontSize: 28,
+                  color: theme.palette.primary.main,
+                },
+              }}
+            >
+              {index === 0 ? <PublicIcon /> : <LocationOnIcon />}
+            </Box>
+
+            <Typography
+              variant="h3"
+              sx={{
+                fontWeight: 800,
+                mb: 1,
+                background: `linear-gradient(135deg,
+                  ${theme.palette.primary.main} 0%,
+                  ${theme.palette.secondary.main} 100%)`,
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >
+              {value}
+            </Typography>
+
+            <Typography
+              variant="body2"
+              sx={{
+                color: 'text.secondary',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: 1,
+              }}
+            >
+              {key
+                .replace(/([A-Z])/g, ' $1')
+                .replace(/^./, str => str.toUpperCase())}
+            </Typography>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </Grid>
+  ))}
+</Grid>
+
 
         {/* Cities Coverage */}
         <Box>
@@ -178,67 +260,128 @@ const Network: React.FC = () => {
           >
             Major Cities We Serve
           </Typography>
-
-          <Grid container spacing={2} sx={{ mb: 6 }}>
-            {majorCities.map((city, index) => (
-              <Grid item xs={6} sm={4} md={3} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
+          <Grid container spacing={2} sx={{ mb: 6 }} alignItems="stretch">
+  {majorCities.map((city, index) => (
+    <Grid
+      item
+      xs={6}        // 📱 2 per row
+      sm={4}
+      md={3}
+      key={index}
+      sx={{ display: "flex" }}
+    >
+      <motion.div
+        style={{ width: "100%", display: "flex" }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.05 }}
+      >
+        <Card
+          sx={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center",
+            p: 2,
+            border: `1px solid ${alpha(
+              theme.palette.primary.main,
+              0.1
+            )}`,
+            transition: "all 0.3s ease",
+            "&:hover": {
+              transform: "translateY(-4px)",
+              boxShadow: `0 10px 20px ${alpha(
+                theme.palette.primary.main,
+                0.1
+              )}`,
+            },
+          }}
+        >
+          <CardContent
+            sx={{
+              p: 0,
+              flexGrow: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: 1,
+            }}
+          >
+            {/* Top Row */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 1,
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <PinDropIcon
+                  sx={{
+                    fontSize: 18,
+                    color:
+                      city.type === "Metro"
+                        ? theme.palette.primary.main
+                        : city.type === "Tier 1"
+                        ? theme.palette.secondary.main
+                        : theme.palette.success.main,
+                  }}
+                />
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: 600,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: 90,
+                  }}
                 >
-                  <Card
-                    sx={{
-                      p: 2,
-                      height: '100%',
-                      border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        borderColor: alpha(theme.palette.primary.main, 0.3),
-                        transform: 'translateY(-4px)',
-                        boxShadow: `0 10px 20px ${alpha(theme.palette.primary.main, 0.1)}`,
-                      },
-                    }}
-                  >
-                    <CardContent sx={{ p: '8px !important' }}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <PinDropIcon
-                          sx={{
-                            color: city.type === 'Metro' ? theme.palette.primary.main : 
-                                   city.type === 'Tier 1' ? theme.palette.secondary.main : 
-                                   theme.palette.success.main,
-                            mr: 1,
-                            fontSize: 20,
-                          }}
-                        />
-                        <Typography variant="subtitle1" sx={{ fontWeight: 600, flexGrow: 1 }}>
-                          {city.name}
-                        </Typography>
-                        <Chip
-                          label={city.type}
-                          size="small"
-                          sx={{
-                            backgroundColor: city.type === 'Metro' ? alpha(theme.palette.primary.main, 0.1) : 
-                                           city.type === 'Tier 1' ? alpha(theme.palette.secondary.main, 0.1) : 
-                                           alpha(theme.palette.success.main, 0.1),
-                            color: city.type === 'Metro' ? theme.palette.primary.main : 
-                                   city.type === 'Tier 1' ? theme.palette.secondary.main : 
-                                   theme.palette.success.main,
-                            fontWeight: 500,
-                            fontSize: '0.7rem',
-                          }}
-                        />
-                      </Box>
-                      <Typography variant="body2" sx={{ color: 'text.secondary', pl: 4 }}>
-                        {city.state}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
+                  {city.name}
+                </Typography>
+              </Box>
+
+              <Chip
+                label={city.type}
+                size="small"
+                sx={{
+                  height: 20,
+                  fontSize: "0.65rem",
+                  backgroundColor:
+                    city.type === "Metro"
+                      ? alpha(theme.palette.primary.main, 0.1)
+                      : city.type === "Tier 1"
+                      ? alpha(theme.palette.secondary.main, 0.1)
+                      : alpha(theme.palette.success.main, 0.1),
+                  color:
+                    city.type === "Metro"
+                      ? theme.palette.primary.main
+                      : city.type === "Tier 1"
+                      ? theme.palette.secondary.main
+                      : theme.palette.success.main,
+                }}
+              />
+            </Box>
+
+            {/* State */}
+            <Typography
+              variant="body2"
+              sx={{
+                color: "text.secondary",
+                minHeight: 32, // equal height
+              }}
+            >
+              {city.state}
+            </Typography>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </Grid>
+  ))}
+</Grid>
+
 
           {/* Additional Info */}
           <Box

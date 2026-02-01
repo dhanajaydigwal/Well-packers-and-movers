@@ -380,6 +380,7 @@ const Contact: React.FC = () => {
                         endIcon={<SendIcon />}
                         sx={{
                           py: 1.5,
+                          width:"200px",
                           borderRadius: 2,
                           fontSize: "1rem",
                           fontWeight: 600,

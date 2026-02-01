@@ -66,52 +66,68 @@ const Footer: React.FC = () => {
       }}
     >
       {/* Top Bar with Features */}
-      <Box sx={{ 
-        backgroundColor: alpha(theme.palette.primary.main, 0.05),
-        py: 3,
-        borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
-      }}>
-        <Container maxWidth="xl">
-          <Grid container spacing={3} justifyContent="center">
-            {features.map((feature, index) => (
-              <Grid item xs={12} sm={4} md={4} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    gap: 2 
-                  }}>
-                    <Box sx={{
-                      backgroundColor: theme.palette.primary.main,
-                      color: 'white',
-                      p: 1,
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                      {feature.icon}
-                    </Box>
-                    <Typography sx={{ 
-                      fontWeight: 600, 
-                      color: theme.palette.primary.dark,
-                      fontSize: '0.9rem'
-                    }}>
-                      {feature.text}
-                    </Typography>
-                  </Box>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+      <Box
+  sx={{
+    backgroundColor: alpha(theme.palette.primary.main, 0.05),
+    py: 2.5,
+    borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+  }}
+>
+  <Container maxWidth="xl">
+    <Grid container spacing={1} justifyContent="center">
+      {features.map((feature, index) => (
+        <Grid item xs={4} key={index}>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",   // 🔥 icon top, text below
+                alignItems: "center",
+                textAlign: "center",
+                gap: 0.8,
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundColor: theme.palette.primary.main,
+                  color: "white",
+                  width: 34,
+                  height: 34,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  "& svg": {
+                    fontSize: 18,
+                  },
+                }}
+              >
+                {feature.icon}
+              </Box>
+
+              <Typography
+                sx={{
+                  fontWeight: 600,
+                  color: theme.palette.primary.dark,
+                  fontSize: "0.7rem",
+                  lineHeight: 1.2,
+                }}
+              >
+                {feature.text}
+              </Typography>
+            </Box>
+          </motion.div>
+        </Grid>
+      ))}
+    </Grid>
+  </Container>
+</Box>
+
 
       <Container maxWidth="xl" sx={{ mt: 4 }}>
         {/* Main Footer Content - New Structure */}
