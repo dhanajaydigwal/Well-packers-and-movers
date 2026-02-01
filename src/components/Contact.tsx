@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
           </Box>
 
           {/* ENHANCED CONTACT CARDS */}
-          <Grid container spacing={3} sx={{  width: "100%" }} mb={6}>
+          <Grid container spacing={3} sx={{  width: "100%",ml:"-15px" }} mb={6}>
             {contactInfo.map((info, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <Paper
