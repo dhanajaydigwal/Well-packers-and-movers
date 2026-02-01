@@ -245,102 +245,14 @@ const About: React.FC = () => {
         </Grid>
 
         {/* Features */}
-        {/* <Box sx={{ mt: { xs: 8, md: 12 } }}>
-          <Grid
-            container
-            spacing={4}
-            wrap="nowrap"
-            sx={{
-              overflowX: "auto",
-            }}
-          >
-            {features.map((feature, index) => (
-              <Grid
-                item
-                key={index}
-                sx={{
-                  minWidth: 280,
-                }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card
-                    sx={{
-                      height: "100%",
-                      p: 3,
-                      textAlign: "center",
-                      background: alpha(theme.palette.background.paper, 0.6),
-                      backdropFilter: "blur(10px)",
-                      border: "1px solid rgba(255,255,255,0.2)",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        transform: "translateY(-8px)",
-                        boxShadow: `0 20px 40px ${alpha(feature.color, 0.15)}`,
-                        borderColor: alpha(feature.color, 0.3),
-                      },
-                    }}
-                  >
-                    <CardContent>
-                      <Box
-                        sx={{
-                          width: 60,
-                          height: 60,
-                          borderRadius: "50%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          background: `linear-gradient(135deg, ${alpha(
-                            feature.color,
-                            0.1,
-                          )} 0%, ${alpha(feature.color, 0.2)} 100%)`,
-                          margin: "0 auto 20px",
-                          "& svg": {
-                            fontSize: 32,
-                            color: feature.color,
-                          },
-                        }}
-                      >
-                        {feature.icon}
-                      </Box>
-
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          fontWeight: 700,
-                          mb: 2,
-                          color: "text.primary",
-                        }}
-                      >
-                        {feature.title}
-                      </Typography>
-
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: "text.secondary",
-                          lineHeight: 1.6,
-                        }}
-                      >
-                        {feature.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Box> */}
         <Box sx={{ mt: { xs: 8, md: 12 } }}>
           <Grid
             container
             spacing={4}
-            sx={{
-              overflowX: "hidden", // ❌ No horizontal scrollbar anywhere
-            }}
+             sx={{
+      // maxWidth: "100%",       // ensure grid doesn’t cause overflow
+   // keep vertical scroll unaffected
+    }}
           >
             {features.map((feature: any, index: number) => (
               <Grid
@@ -373,7 +285,6 @@ const About: React.FC = () => {
                     }}
                   >
                     <CardContent>
-                      {/* Icon */}
                       <Box
                         sx={{
                           width: 60,
