@@ -743,7 +743,7 @@ const Header: React.FC<NavigationProps> = ({
       </Box>
 
       {/* Active Section Indicator - Shows on both desktop and mobile */}
-      <Fade in={scrolled}>
+      {/* <Fade in={scrolled}>
         <Box
           sx={{
             position: 'fixed',
@@ -774,7 +774,7 @@ const Header: React.FC<NavigationProps> = ({
             {activeSection}
           </Typography>
         </Box>
-      </Fade>
+      </Fade> */}
 
       {/* Tooltip for Mobile Hover */}
       {isMobile && (
@@ -800,7 +800,7 @@ const Header: React.FC<NavigationProps> = ({
                 alignItems: 'center',
               }}
             >
-              <Fade in={activeSection === section.id}>
+              {/* <Fade in={activeSection === section.id}>
                 <Box
                   sx={{
                     backgroundColor: alpha(theme.palette.background.paper, 0.9),
@@ -823,7 +823,7 @@ const Header: React.FC<NavigationProps> = ({
                     {section.label}
                   </Typography>
                 </Box>
-              </Fade>
+              </Fade> */}
             </Box>
           ))}
         </Box>
