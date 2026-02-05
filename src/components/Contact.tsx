@@ -49,8 +49,6 @@ const Contact: React.FC = () => {
     agreeTerms: false,
   });
 
-  const [captcha, setCaptcha] = useState("");
-  const [userCaptcha, setUserCaptcha] = useState("");
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
@@ -63,7 +61,6 @@ const Contact: React.FC = () => {
     for (let i = 0; i < 6; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    setCaptcha(result);
   };
 
   useEffect(() => {
@@ -74,47 +71,16 @@ const Contact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+ const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (userCaptcha !== captcha) {
-      setSnackbar({
-        open: true,
-        message: "Captcha verification failed",
-        severity: "error",
-      });
-      generateCaptcha();
-      return;
-    }
-
-    if (!formData.agreeTerms) {
-      setSnackbar({
-        open: true,
-        message: "Please accept terms & conditions",
-        severity: "error",
-      });
-      return;
-    }
-
-    setSnackbar({
-      open: true,
-      message: "Form submitted successfully!",
-      severity: "success",
-    });
-
-    setFormData({
-      name: "",
-      movingDate: dayjs(),
-      email: "",
-      phone: "",
-      movingFrom: "",
-      movingTo: "",
-      message: "",
-      agreeTerms: false,
-    });
-    setUserCaptcha("");
-    generateCaptcha();
+  const payload = {
+    ...formData,
+    movingDate: formData.movingDate?.format("YYYY-MM-DD"),
   };
+
+  console.log("SEND THIS 👉", payload);
+};
 
   const contactInfo = [
     {
