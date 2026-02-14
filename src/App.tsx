@@ -12,7 +12,6 @@ import Network from './components/Network'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import HelpWidget from './components/HelpWidget'
 import ScrollProgress from './components/ScrollProgress'
 import './App.css'
 
@@ -88,7 +87,7 @@ function App() {
           <FAQ />
           <Contact />
           <Footer />
-          <HelpWidget />
+          {/* <HelpWidget /> */}
           {/* <SocialFloat /> */}
         </Box>
       </ThemeProvider>

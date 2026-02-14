@@ -209,30 +209,6 @@ const Header: React.FC<NavigationProps> = ({
                 alignItems: 'center',
               }}
             >
-              {/* <Fade in={activeSection === section.id}>
-                <Box
-                  sx={{
-                    backgroundColor: alpha(theme.palette.background.paper, 0.9),
-                    backdropFilter: 'blur(10px)',
-                    px: 1.5,
-                    py: 0.5,
-                    borderRadius: 2,
-                    whiteSpace: 'nowrap',
-                    boxShadow: '0 3px 10px rgba(0,0,0,0.1)',
-                  }}
-                >
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      fontWeight: 600,
-                      color: theme.palette.primary.main,
-                      fontSize: '0.7rem',
-                    }}
-                  >
-                    {section.label}
-                  </Typography>
-                </Box>
-              </Fade> */}
             </Box>
           ))}
         </Box>

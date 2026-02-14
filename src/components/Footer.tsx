@@ -152,7 +152,7 @@ const Footer: React.FC = () => {
                       mb: 0.5,
                     }}
                   >
-                    Well Logistic
+                    CarryPack
                   </Typography>
                   <Typography
                     variant="subtitle1"
@@ -161,7 +161,7 @@ const Footer: React.FC = () => {
                       fontWeight: 600,
                     }}
                   >
-                    & Movers
+                    Logistics
                   </Typography>
                 </Box>
               </Box>
@@ -245,7 +245,7 @@ const Footer: React.FC = () => {
                   color: theme.palette.primary.main 
                 }} />
                 <Typography variant="body2" sx={{ color: '#4a5568' }}>
-                  123 Business Street, Mumbai
+                  123 Business Street, Jaipur
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -270,7 +270,7 @@ const Footer: React.FC = () => {
               gap: 2
             }}>
               <Typography variant="body2" sx={{ color: '#718096', fontWeight: 500 }}>
-                © {new Date().getFullYear()} Well Logistic & Movers
+                © {new Date().getFullYear()} CarryPack Logistics
               </Typography>
               
               <Box sx={{ display: 'flex', gap: 2 }}>
@@ -343,7 +343,7 @@ const Footer: React.FC = () => {
         order: { xs: 2, sm: 1 }
       }}
     >
-      All Rights Reserved with @ The Well Logistic & Movers
+      All Rights Reserved with @ CarryPack Logistics
     </Typography>
     
     {/* Vertical Divider - Hidden on mobile */}

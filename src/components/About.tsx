@@ -127,7 +127,7 @@ const About: React.FC = () => {
                   lineHeight: 1.7,
                 }}
               >
-                At <strong>Well Logistic & Movers</strong>, we transform the
+                At <strong>CarryPack Logistics</strong>, we transform the
                 stressful experience of moving into a seamless journey. With
                 over 12 years of expertise, we've perfected the art of
                 relocation across India.

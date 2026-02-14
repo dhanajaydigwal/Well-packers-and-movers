@@ -110,7 +110,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
                   textShadow: "0 2px 10px rgba(0,0,0,0.1)",
                 }}
               >
-                The Well Logistic & Movers
+                CarryPack Logistics
               </Typography>
             </motion.div>
             <motion.div
