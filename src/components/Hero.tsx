@@ -161,7 +161,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
                   fontWeight: 800,
                   mb: 5,
                   fontSize: {
-                    xs: "2.2rem",
+                    xs: "3.5rem",
                     sm: "3rem",
                     md: "3.5rem",
                     lg: "5rem",
@@ -228,7 +228,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
             </motion.div>
 
             {/* Buttons with Hover Effects */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -305,6 +305,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
                         position: "absolute",
                         top: "50%",
                         left: "50%",
+                      
                         width: 0,
                         height: 0,
                         borderRadius: "50%",
@@ -322,7 +323,61 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
                   </Button>
                 </motion.div>
               </Box>
-            </motion.div>
+            </motion.div> */}
+            <motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.5, delay: 0.8 }}
+>
+  <Box
+    sx={{
+      display: "flex",
+      gap: 2,
+      flexDirection: { xs: "column", sm: "row" }, // 👈 mobile me column
+      width: "100%",
+    }}
+  >
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <Button
+        fullWidth   // 👈 mobile pe full width
+        variant="contained"
+        color="primary"
+        size="large"
+        onClick={() => scrollToSection("contact")}
+        sx={{
+          px: { xs: 2, sm: 4 },  // 👈 mobile me kam padding
+          py: 1.5,
+          fontSize: { xs: "0.9rem", sm: "1.1rem" },
+          fontWeight: 700,
+          whiteSpace: "nowrap",
+        }}
+      >
+        Get Free Quote
+      </Button>
+    </motion.div>
+
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <Button
+        fullWidth
+        variant="outlined"
+        color="secondary"
+        size="large"
+        onClick={() => scrollToSection("services")}
+        sx={{
+          px: { xs: 2, sm: 4 },
+          py: 1.5,
+          fontSize: { xs: "0.9rem", sm: "1.1rem" },
+          fontWeight: 700,
+          borderWidth: 2,
+          whiteSpace: "nowrap",
+        }}
+      >
+        Our Services
+      </Button>
+    </motion.div>
+  </Box>
+</motion.div>
+
           </Grid>
         </Grid>
 
@@ -427,77 +482,6 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
         </motion.div>
       </Container>
 
-      {/* Animated Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        style={{
-          position: "absolute",
-          bottom: 30,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 1,
-          cursor: "pointer",
-        }}
-        onClick={() => scrollToSection("services")}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            color: "primary.main",
-          }}
-        >
-          <Typography variant="caption" sx={{ mb: 1 }}>
-            Scroll to explore
-          </Typography>
-          <Box
-            sx={{
-              width: 30,
-              height: 50,
-              border: `2px solid ${theme.palette.primary.main}`,
-              borderRadius: 15,
-              display: "flex",
-              justifyContent: "center",
-              paddingTop: 1,
-            }}
-          >
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              style={{
-                width: 4,
-                height: 10,
-                backgroundColor: theme.palette.primary.main,
-                borderRadius: 2,
-              }}
-            />
-          </Box>
-        </Box>
-      </motion.div>
-
-      {/* CSS Animation */}
-      <style>
-        {`
-          // @keyframes float {
-          //   0%, 100% { transform: translateY(0px) translateX(0px); }
-          //   33% { transform: translateY(-20px) translateX(10px); }
-          //   66% { transform: translateY(10px) translateX(-10px); }
-          // }
-          
-          // @keyframes pulse {
-          //   0%, 100% { opacity: 0.3; transform: scale(1); }
-          //   50% { opacity: 0.8; transform: scale(1.1); }
-          // }
-          
-          .glow-text {
-            text-shadow: 0 0 10px rgba(25, 118, 210, 0.5),
-                         0 0 20px rgba(25, 118, 210, 0.3),
-                         0 0 30px rgba(25, 118, 210, 0.2);
-          }
-        `}
-      </style>
     </Box>
   );
 };
