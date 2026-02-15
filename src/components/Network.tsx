@@ -20,8 +20,8 @@ const Network: React.FC = () => {
 
   const networkData = {
     coverage: "Pan-India",
-    cities: "150+ Cities",
-    tier2Tier3: "75+ Cities",
+    tier1: "8+ Cities",
+    tier2Tier3: "70+ Cities",
     states: "28 States",
   };
 
@@ -475,7 +475,7 @@ const Network: React.FC = () => {
                         color: "transparent",
                       }}
                     >
-                      75+
+                      70+
                     </Typography>
                   </Box>
                 </Box>

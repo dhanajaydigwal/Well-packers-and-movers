@@ -18,8 +18,8 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import YouTubeIcon from '@mui/icons-material/YouTube'
-import LocationOnIcon from '@mui/icons-material/LocationOn'
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
+// import LocationOnIcon from '@mui/icons-material/LocationOn'
+// import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import VerifiedIcon from '@mui/icons-material/Verified'
 import ShieldIcon from '@mui/icons-material/Shield'
@@ -237,7 +237,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section - Contact Details & Copyright */}
         <Grid container spacing={3} alignItems="center">
           {/* Contact Details */}
-          <Grid item xs={12} md={6}>
+          {/* <Grid item xs={12} md={6}>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <LocationOnIcon sx={{ 
@@ -258,7 +258,7 @@ const Footer: React.FC = () => {
                 </Typography>
               </Box>
             </Box>
-          </Grid>
+          </Grid> */}
 
           {/* Copyright & Links */}
           <Grid item xs={12} md={6}>

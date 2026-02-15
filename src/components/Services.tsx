@@ -5,7 +5,6 @@ import {
   Typography,
   Card,
   CardContent,
-  Button,
   alpha,
   useTheme,
 } from '@mui/material'
@@ -19,36 +18,67 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar'
 const Services: React.FC = () => {
   const theme = useTheme()
 
+  // const services = [
+  //   {
+  //     title: 'Separate & Sharing',
+  //     description:
+  //       'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  //     icon: <HomeIcon />,
+  //     features: ['Room-wise packing', 'Shared space logistics', 'Partial move solutions'],
+  //   },
+  //   {
+  //     title: 'Packing & Moving',
+  //     description:
+  //       'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  //     icon: <InventoryIcon />,
+  //     features: ['Professional packing', 'Material provided', 'Item categorization'],
+  //   },
+  //   {
+  //     title: 'Loading & Unloading',
+  //     description:
+  //       'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  //     icon: <MovingIcon />,
+  //     features: ['Trained manpower', 'Safety equipment', 'Damage protection'],
+  //   },
+  //   {
+  //     title: 'Car & Bike Transport',
+  //     description:
+  //       'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  //     icon: <DirectionsCarIcon />,
+  //     features: ['Door-to-door service', 'Insurance covered', 'Real-time tracking'],
+  //   },
+  // ]
   const services = [
-    {
-      title: 'Separate & Sharing',
-      description:
-        'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  {
+    title: 'Separate & Sharing',
+    description:
+      'Flexible moving solutions for shared spaces or partial relocations, ensuring smooth coordination and cost-effective transport.',
       icon: <HomeIcon />,
       features: ['Room-wise packing', 'Shared space logistics', 'Partial move solutions'],
     },
-    {
-      title: 'Packing & Moving',
-      description:
-        'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  {
+    title: 'Packing & Moving',
+    description:
+      'Complete end-to-end relocation services with professional packing, secure transportation, and careful delivery of your belongings.',
       icon: <InventoryIcon />,
       features: ['Professional packing', 'Material provided', 'Item categorization'],
     },
-    {
-      title: 'Loading & Unloading',
-      description:
-        'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  {
+    title: 'Loading & Unloading',
+    description:
+      'Skilled manpower equipped with modern tools to safely load and unload your items with maximum care and efficiency.',
       icon: <MovingIcon />,
       features: ['Trained manpower', 'Safety equipment', 'Damage protection'],
     },
-    {
-      title: 'Car & Bike Transport',
-      description:
-        'Expert team with proper equipment for safe loading and unloading of your belongings.',
+  {
+    title: 'Car & Bike Transport',
+    description:
+      'Reliable vehicle transportation services with secure handling, insurance coverage, and real-time tracking for peace of mind.',
       icon: <DirectionsCarIcon />,
       features: ['Door-to-door service', 'Insurance covered', 'Real-time tracking'],
     },
-  ]
+]
+
 
   return (
     <Box
@@ -206,7 +236,7 @@ const Services: React.FC = () => {
                     </Box>
 
                     {/* Button */}
-                    <Button
+                    {/* <Button
                       variant="outlined"
                       fullWidth
                       sx={{
@@ -223,7 +253,7 @@ const Services: React.FC = () => {
                       }}
                     >
                       Learn More
-                    </Button>
+                    </Button> */}
                   </CardContent>
                 </Card>
               </motion.div>

@@ -20,44 +20,51 @@ import FactoryIcon from '@mui/icons-material/Factory'
 const Industries: React.FC = () => {
   const theme = useTheme()
 
-  const industries = [
-    {
-      icon: <ComputerIcon />,
-      title: 'IT & Consumer Electronics',
-      description: 'Heavy machinery and industrial equipment transportation.',
-      color: theme.palette.primary.main,
-    },
-    {
-      icon: <HomeIcon />,
-      title: 'Residential',
-      description: 'Heavy machinery and industrial equipment transportation.',
-      color: theme.palette.secondary.main,
-    },
-    {
-      icon: <BusinessIcon />,
-      title: 'Corporate',
-      description: 'Heavy machinery and industrial equipment transportation.',
-      color: theme.palette.success.main,
-    },
-    {
-      icon: <SchoolIcon />,
-      title: 'Educational',
-      description: 'Heavy machinery and industrial equipment transportation.',
-      color: theme.palette.info.main,
-    },
-    {
-      icon: <StoreIcon />,
-      title: 'Retail',
-      description: 'Heavy machinery and industrial equipment transportation.',
-      color: theme.palette.warning.main,
-    },
-    {
-      icon: <FactoryIcon />,
-      title: 'Industrial',
-      description: 'Heavy machinery and industrial equipment transportation.',
-      color: theme.palette.error.main,
-    },
-  ]
+ const industries = [
+  {
+    icon: <ComputerIcon />,
+    title: 'IT & Consumer Electronics',
+    description:
+      'Secure handling and transportation of sensitive IT equipment, servers, and consumer electronics with anti-static and damage-protection measures.',
+    color: theme.palette.primary.main,
+  },
+  {
+    icon: <HomeIcon />,
+    title: 'Residential',
+    description:
+      'Safe and reliable home relocation services, ensuring careful packing, transport, and delivery of household belongings.',
+    color: theme.palette.secondary.main,
+  },
+  {
+    icon: <BusinessIcon />,
+    title: 'Corporate',
+    description:
+      'Efficient office relocation solutions with minimal downtime, secure document handling, and organized asset management.',
+    color: theme.palette.success.main,
+  },
+  {
+    icon: <SchoolIcon />,
+    title: 'Educational',
+    description:
+      'Specialized moving services for schools, colleges, and institutions, including lab equipment, furniture, and library assets.',
+    color: theme.palette.info.main,
+  },
+  {
+    icon: <StoreIcon />,
+    title: 'Retail',
+    description:
+      'Streamlined logistics for retail stores, including display units, inventory transport, and warehouse shifting services.',
+    color: theme.palette.warning.main,
+  },
+  {
+    icon: <FactoryIcon />,
+    title: 'Industrial',
+    description:
+      'Heavy-duty transportation solutions for machinery, equipment, and large-scale industrial assets with proper safety compliance.',
+    color: theme.palette.error.main,
+  },
+]
+
 
   return (
     <Box

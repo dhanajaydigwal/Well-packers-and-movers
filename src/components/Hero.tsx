@@ -34,9 +34,9 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const stats = [
-    { value: "5000+", label: "Successful Moves", icon: <LocalShippingIcon /> },
+    { value: "500+", label: "Successful Moves", icon: <LocalShippingIcon /> },
     {
-      value: "50+",
+      value: "78+",
       label: "Cities Covered",
       icon: <EmojiTransportationIcon />,
     },

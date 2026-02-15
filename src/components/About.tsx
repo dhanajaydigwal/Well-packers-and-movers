@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import SecurityIcon from "@mui/icons-material/Security";
 import GroupsIcon from "@mui/icons-material/Groups";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+// import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 const About: React.FC = () => {
   const theme = useTheme();
@@ -39,19 +39,19 @@ const About: React.FC = () => {
       description: "Round-the-clock customer service assistance",
       color: theme.palette.secondary.main,
     },
-    {
-      icon: <EmojiEventsIcon />,
-      title: "Award Winning",
-      description: "Recognized as best moving service provider",
-      color: theme.palette.warning.main,
-    },
+    // {
+    //   icon: <EmojiEventsIcon />,
+    //   title: "Award Winning",
+    //   description: "Recognized as best moving service provider",
+    //   color: theme.palette.warning.main,
+    // },
   ];
 
   const stats = [
-    { value: "12+", label: "Years Experience", icon: "🏆" },
-    { value: "50K+", label: "Happy Customers", icon: "😊" },
-    { value: "100+", label: "Cities Covered", icon: "📍" },
-    { value: "500+", label: "Expert Staff", icon: "👨‍🔧" },
+    { value: "3+", label: "Years Experience", icon: "🏆" },
+    { value: "500+", label: "Happy Customers", icon: "😊" },
+    { value: "78+", label: "Cities Covered", icon: "📍" },
+    { value: "", label: "Expert Staff", icon: "👨‍🔧" },
   ];
 
   return (
@@ -129,7 +129,7 @@ const About: React.FC = () => {
               >
                 At <strong>CarryPack Logistics</strong>, we transform the
                 stressful experience of moving into a seamless journey. With
-                over 12 years of expertise, we've perfected the art of
+                over 3 years of expertise, we've perfected the art of
                 relocation across India.
               </Typography>
 
