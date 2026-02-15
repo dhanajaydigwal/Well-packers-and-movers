@@ -14,7 +14,6 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
 import './App.css'
-import HelpWidget from './components/HelpWidget'
 
 const theme = createTheme({
   palette: {
