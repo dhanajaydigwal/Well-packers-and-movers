@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
       };
 
       const response: any = await fetch(
-        "https://hilarious-hotteok-c32421.netlify.app/api/lead",
+        "https://whimsical-jelly-f75900.netlify.app/api/lead",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
